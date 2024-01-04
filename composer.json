@@ -1,0 +1,41 @@
+{
+    "name": "juandiaz/async-amazon-jp",
+    "description": "Personal project with amazon gifs",
+    "require": {
+        "guzzlehttp/guzzle": "^7.8",
+        "doctrine/orm": "^2.16",
+        "doctrine/migrations": "^3.6",
+
+        "lambdish/phunctional": "^2.1",
+
+        "symfony/console": "^6.3",
+        "symfony/uid": "^6.3",
+        "symfony/http-foundation": "^6.3",
+        "symfony/dependency-injection": "^6.3",
+        "symfony/http-kernel": "^6.3",
+        "symfony/framework-bundle": "^6.3",
+        "symfony/runtime": "^6.3",
+        "symfony/routing": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "AsyncAmazonJp\\intranet\\": "intranet/src/",
+            "AsyncAmazonJp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bitsJuan.Diaz",
+            "email": "juan.diaz@bitsamericas.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^10.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/runtime": true
+        }
+    }
+}

@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+
+use AsyncAmazonJp\intranet\AsyncAmazonJpKernel;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+
+require dirname(__DIR__) . '../../vendor/autoload.php';
+
+umask(0000);
+
+require_once dirname(__DIR__).'../../vendor/autoload_runtime.php';
+
+$kernel = new AsyncAmazonJpKernel('dev', true);
+
+return new Application($kernel);

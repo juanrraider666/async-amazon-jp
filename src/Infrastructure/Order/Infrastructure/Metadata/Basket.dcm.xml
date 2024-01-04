@@ -1,0 +1,14 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Juandiaz\AsyncAmazonJp\Domain\Model\Basket" table="baskets">
+        <id name="id" type="integer">
+            <generator/>
+        </id>
+
+        <embedded name="name" class="Juandiaz\AsyncAmazonJp\Domain\Order\BasketName"/>
+
+    </entity>
+</doctrine-mapping>

@@ -1,0 +1,5 @@
+order_get:
+  path: /orders
+  controller: AsyncAmazonJp\Context\Order\UI\Controller\OrdersGetController
+  defaults: { auth: false }
+  methods:  [GET]
