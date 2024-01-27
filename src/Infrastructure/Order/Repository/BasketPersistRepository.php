@@ -2,6 +2,7 @@
 
 namespace AsyncAmazonJp\Infrastructure\Order\Repository;
 
+use AsyncAmazonJp\Infrastructure\OrmCriteriaInterface;
 use Doctrine\ORM\EntityManager;
 use AsyncAmazonJp\Domain\Model\Basket;
 use AsyncAmazonJp\Domain\Order\BasketRepository;
@@ -28,4 +29,11 @@ class BasketPersistRepository extends PersisterRepository implements BasketRepos
     {
         return null;
     }
+
+    public function findByCriteria(OrmCriteriaInterface $criteria) {
+
+        $criteria->and();
+
+    }
+
 }

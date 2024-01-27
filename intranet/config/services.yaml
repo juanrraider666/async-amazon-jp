@@ -2,6 +2,11 @@ services:
     _defaults:
       autowire: true
       autoconfigure: true
+      public: false
 
-    Juandiaz\AsyncAmazonJp\:
+    AsyncAmazonJp\:
       resource: '../../src/'
+
+    AsyncAmazonJp\UI\Controller\:
+      resource: '../../src/*/Order/Controller/'
+      tags: [ 'controller.service_arguments' ]

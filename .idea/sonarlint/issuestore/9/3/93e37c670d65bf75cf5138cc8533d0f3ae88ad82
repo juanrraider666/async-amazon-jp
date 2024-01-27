@@ -1,0 +1,5 @@
+
+M	php:S1144#"1Remove this unused private "getconfigdir" method.(ýäÒÆ8ûÛÁ™Ô1
+:php:S113"'Add a new line at the end of this file.8„†¸™Ô1
+B	php:S2003"&Replace "require" with "require_once".(ƒ™à¡8”†¸™Ô1
+h	php:S4833"LReplace "require" with namespace import mechanism through the "use" keyword.(ƒ™à¡8¤†¸™Ô1

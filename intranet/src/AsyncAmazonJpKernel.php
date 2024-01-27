@@ -5,7 +5,9 @@ namespace AsyncAmazonJp\intranet;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 /**
  *
@@ -18,10 +20,21 @@ class AsyncAmazonJpKernel extends Kernel
 {
     use MicroKernelTrait;
 
-    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
+    public function registerBundles(): iterable
     {
-        $confDir = $this->getProjectDir() . '/config';
-        $loader->load($confDir . '/services.{xml,yaml}', 'glob');
+        $contents = require $this->getProjectDir().'/intranet/config/bundles.php';
+
+        foreach ($contents as $class => $envs) {
+            if ($envs[$this->environment] ?? $envs['all'] ?? false) {
+                yield new $class();
+            }
+        }
+    }
+
+
+    private function getConfigDir(): string
+    {
+        return $this->getProjectDir().'/intranet/config';
     }
 
 }

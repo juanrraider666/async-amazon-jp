@@ -3,6 +3,8 @@
 namespace AsyncAmazonJp\Infrastructure\Framework;
 
 use AsyncAmazonJp\Domain\Bus\Command\CommandBus;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 use function Lambdish\Phunctional\repeat;
@@ -14,7 +16,7 @@ use function Lambdish\Phunctional\repeat;
  * @date 10/26/2023
  * @version 1.0.0
  */
-class IntranetBaseController
+class IntranetBaseController extends AbstractController
 {
 
     public function __construct(
@@ -22,6 +24,7 @@ class IntranetBaseController
         protected readonly CommandBus   $bus
     )
     {
+
     }
 
     public function redirectWithMessage(string $routeName, string $message): RedirectResponse
@@ -39,8 +42,9 @@ class IntranetBaseController
 
     }
 
-    public function redirect(string $routeName): RedirectResponse
-    {
-        return new RedirectResponse($this->router->generate($routeName), 302);
+
+    protected function responseJson(array $data): JsonResponse {
+        return new JsonResponse($data);
     }
+
 }

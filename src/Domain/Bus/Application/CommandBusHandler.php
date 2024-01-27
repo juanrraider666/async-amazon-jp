@@ -16,7 +16,7 @@ use AsyncAmazonJp\Domain\Bus\Command\CommandHandler;
 class CommandBusHandler implements CommandBus
 {
 
-    public function __construct(private array $handlers) {
+    public function __construct(private array $handlers = []) {
     }
 
     public function dispatch(Command $command): void
@@ -27,7 +27,8 @@ class CommandBusHandler implements CommandBus
 
         /** @var CommandHandler $handler */
         $handler = $this->handlers[get_class($command)];
-        $handler->__invoke($command);
+        dd($handler);
+       // $handler->__invoke($command);
     }
 
 }

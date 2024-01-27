@@ -2,6 +2,7 @@
 
 namespace AsyncAmazonJp\Context\Order\UI\Controller;
 
+use AsyncAmazonJp\Infrastructure\Framework\IntranetBaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
@@ -11,13 +12,13 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  * @date 10/27/2023
  * @version 1.0.0
  */
-class OrdersGetController
+class OrdersGetController extends IntranetBaseController
 {
 
     public function __invoke()
     {
-       return new JsonResponse([
-           'Wl' => 'Welcome'
+       return $this->responseJson([
+           'Raise Hand!',
        ]);
     }
 }

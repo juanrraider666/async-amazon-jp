@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 umask(0000);
 
-require_once dirname(__DIR__).'../../vendor/autoload_runtime.php';
+require_once dirname(__DIR__).'/vendor/autoload.php';
 
 $kernel = new AsyncAmazonJpKernel('dev', true);
 
@@ -16,4 +16,3 @@ $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
-
